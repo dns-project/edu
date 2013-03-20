@@ -5,6 +5,7 @@
 
 * [@meniam](http://github.com/meniam) Хочу узнать про скорость селекторов
 * [@meniam](http://github.com/meniam) Интересна поддержка браузеров, желательно в виде сводной таблицы
+* [@trustnik](http://github.com/trustnik) Специфичные селекторы (+, >, ~ и т.д.)
 
 ## Что почитать
 
