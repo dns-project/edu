@@ -1,0 +1,145 @@
+# Базовые правила
+
+* Для назначения стилей можно использовать только '''class''' (использовать id '''запрещено''').
+* Классы называть исключительно в единственном числе.
+
+# Коротко о главном
+
+* Основной элемент должен иметь базовый смысловой  префикс, а составные части основного элемента должны иметь простое  название без базового префикса. Пояснения
+* Все описания классов должны начинаться с базового класса и иметь полный контекст, разделенный селектором 
+> . Пояснения
+
+Схема правильной структуры файлов
+----
+
+# Правила именования классов==
+Рассмотрим правила организации css на примере тикета. Основной элемент – <div> тикета имеет базовый класс ticket_item. Остальные элементы, являющиеся частями тикета должны иметь классы без префикса ticket_,  т.е. называться просто info, caption и т.п. Пример:
+<div style="background-color:#F9F9F9; border: 1px dashed #2F6FAB; color: black;padding: 1em">
+<syntaxhighlight lang="html4strict">
+<div class="ticket_item">     
+  <div class="caption"> 
+    ... 
+  </div>     
+  <div class="info"> 
+    <div class="description"> 
+      ... 
+    </div> 
+  </div>     
+</div>
+</syntaxhighlight>
+</div>
+<br/>
+
+<div style="background-color:#F9F9F9; border: 1px dashed #2F6FAB; color: black;padding: 1em">
+
+Правило:
+----
+
+Основной элемент должен иметь базовый смысловой  префикс, а составные части основного элемента должны иметь простое  название без базового префикса.
+----
+</div>
+В таком случае, css файлы должны быть организованы описанным ниже способом.
+
+==Правила организации css-файлов==
+В корневой папке должен находиться файл screen.css и папка screen. В файле screen.css должны, при помощи import, подключаться все файлы отвечающие за основные элементы (ticket.css, helper.css, user.css). Сами эти файлы находятся в папке screen и содержат в свою очередь импорты базовых элементов, имеющих соответствующий префикс. Т.е. в файле ticket.css будет импорт файла описывающего базовый элемент ticket_item. На одном уровне с ticket.css должна быть папка ticket, в которой храняться файлы описывающие элементы с префиксом ticket_, и имеющие название без префикса. Т.е. файл отвечающий за базовый элемент ticket_item будет называться item.css и располагаться в папке ticket. В этом файле будет описание классов для элемента ticket_item и его составных частей.<br/>
+Пример:
+<div style="background-color:#F9F9F9; border: 1px dashed #2F6FAB; color: black;padding: 1em">
+<source lang="xml">
+css
+  default
+    screen.css 
+    screen 
+      ticket.css 
+      user.css 
+      helper.css 
+      ticket 
+        item.css 
+        category.css 
+        ...
+</source>
+</div>
+
+Содержимое файла screen.css:
+<div style="background-color:#F9F9F9; border: 1px dashed #2F6FAB; color: black;padding: 1em">
+@import url('screen/clearfix.css'); <br/>
+@import url('screen/user.css'); <br/>
+@import url('screen/helper.css'); <br/>
+@import url('screen/ticket.css'); <br/>
+...
+</div>
+
+Содержимое файла ticket.css:
+<div style="background-color:#F9F9F9; border: 1px dashed #2F6FAB; color: black;padding: 1em">
+@import url('ticket/item.css'); <br/>
+@import url('ticket/category.css'); <br/>
+...
+</div>
+
+Содержимое файла item.css:
+<div style="background-color:#F9F9F9; border: 1px dashed #2F6FAB; color: black;padding: 1em">
+<source lang="xml">
+.ticket_item { 
+  float: left; 
+} 
+.ticket_item > .info { 
+  margin: 0.3em 1em 0; 
+} 
+.ticket_item > .info > .description{ 
+  margin: 1em; 
+} 
+...
+</source>
+</div>
+Итак, мы подходим к следующему пункту.
+
+==Правила описания классов==
+Опишем их на примере item.css. 
+Все описания классов в этом файле (отвечающем за базовый элемент  ticket_item) должны начинаться с .ticket_item. Далее должен следовать  полный список классов-потомков (контекст) разделенных селектором >.  Селектор > указывает на то, что стили задаются только для потомков первого уровня. Это помогает избежать проблемы с переопределением классов. 
+Пример описания класса description (из первого примера):
+<div style="background-color:#F9F9F9; border: 1px dashed #2F6FAB; color: black;padding: 1em">
+<source lang="xml">
+.ticket_item > .info > .description{ 
+  margin: 1em; 
+  ... 
+}
+</source>
+</div>
+
+Правило:
+<div style="background-color:#F9F9F9; border: 1px dashed #2F6FAB; color: black;padding: 1em">
+----
+
+Все описания классов должны начинаться с базового класса и иметь полный контекст, разделенный селектором > .
+----
+
+</div>
+
+==Подводные камни==
+===Названия форм===
+Классы форм должны иметь названия с префиксом. Т.е. ticket_form, comment_form и т.д.
+
+===Переопределение классов===
+Допустим, у нас есть два основных элемента – ticket и comment. Эти элементы независимы и полноценны, поэтому их описание должно храниться в разных файлах в папке screen. Предположим, что нам нужно вывести комментарии на страничке просмотра  тикета и изменить вид этих комментариев. Тогда мы должны внести блок  комментариев внутрь блока ticket_item и переопределять классы комментариев в файле ticket/item.css следующим образом:
+<div style="background-color:#F9F9F9; border: 1px dashed #2F6FAB; color: black;padding: 1em">
+<source lang="xml">
+.ticket_item > .comment { 
+  margin: 1em; 
+} 
+.ticket_item > .comment > .item { 
+  margin: 2em; 
+} 
+...
+</source>
+</div>
+
+===Другое===
+
+ГЛАВНОЕ!!! Никаких пикселей и прочего! Только относительные единицы - em и %.
+
+При использовании padding возникают неочевидные проблемы в шаблонах. Желательно использовать только margin.
+
+Цвета - только в формате #xxxxxx.
+
+Картинки с прозрачным фоном сохранять в PNG24 (в фотошопе опция Save for Web, или Ctrl-Alt-Shift-S)
+
+Для анализа верстки использовать Firefox и Chrome (+Firebug).
