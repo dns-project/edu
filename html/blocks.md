@@ -16,3 +16,14 @@
 
 ## Внутреннее устройство
 
+
+### Параметр inner_block (обернуть вложенные блоки в HTML tag)
+
+```xml
+<inner_block>
+    <param name="show" type="boolean" value="true"/>
+    <param name="html_tag" type="string" value="span"/>
+    <param name="css_class" type="string" value="css_class"/>
+    <param name="modifier_css_class" type="string" value="modifier_css_class"/>
+</inner_block>
+```
