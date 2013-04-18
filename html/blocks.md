@@ -64,3 +64,13 @@
     <param name="modifier_css_class" type="string" value="modifier_css_class"/>
 </inner_block>
 ```
+
+### controller/action - управление блоком в контроллере
+
+```xml
+<block>
+    <!-- Controller/Action для обработки -->
+    <controller value="index" />
+    <action value="index" />
+</block>
+```
