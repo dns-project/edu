@@ -9,6 +9,7 @@
 
 ## Что почитать
 
+* http://estelle.github.io/selectors/
 * http://www.w3schools.com/cssref/css_selectors.asp
 * http://everstudent.ru/blog/htmlcss/30-css-seletors-to-memorize/
 * http://vvz.nw.ru/Lessons/CSS/selectors.htm
