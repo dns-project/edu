@@ -11,4 +11,5 @@
 
 ## Ссылки по теме
 
+* https://ru.wikipedia.org/wiki/URL
 * http://en.wikipedia.org/wiki/Slug_(programming)#Slug
