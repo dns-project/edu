@@ -18,3 +18,4 @@
 
 * https://ru.wikipedia.org/wiki/URL
 * http://en.wikipedia.org/wiki/Slug_(programming)#Slug
+* https://ru.wikipedia.org/wiki/%D0%A7%D0%9F%D0%A3_(%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82)
