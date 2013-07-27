@@ -76,7 +76,31 @@ view[how][sub][sub] = value
 
 то есть для фильтрации данных на странице по минимальной и максимальной цене, нужно использовать: 
 
-filter[price][min]=10&filter[price][max]=100
+filter[price][max]=100&filter[price][min]=10 (обратите внимание, параметры выстроены по-имени)
+
+## Стандартные наименования
+
+
+<table>
+  <tr>
+    <th>Name</th><th>Значение поля</th><th>Назначение</th>
+  </tr>
+  <tr>
+    <td colspan="3">filter - фильтрация</td>
+  </tr>
+  <tr>
+    <td>[price][min]</td><td>int</td><td>Минимальная цена</td>
+  </tr>
+  <tr>
+    <td>[price][max]</td><td>int</td><td>Максимальная цена</td>
+  </tr>
+  <tr>
+    <td>[price][currency]</td><td>USD|RUB|EUR...</td><td>Валюта</td>
+  </tr>
+  <tr>
+    <td>[price][type]</td><td>with_discount</td><td>Тип цены, например товары со скидкой</td>
+  </tr>
+</table>
 
 ## Правило &laquo;А. Лебедева&raquo;
 
