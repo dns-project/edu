@@ -70,13 +70,13 @@ Location: /some/thing/?a=1&b=1
 
 Мы используем параметры в следующей нотации: 
 
-filter[what][sub][sub] = value
-order[how][sub][sub] = value
-view[how][sub][sub] = value
+filter[what][sub][sub][value] = value
+order[how][sub][sub][value] = value
+view[how][sub][sub][value] = value
 
 то есть для фильтрации данных на странице по минимальной и максимальной цене, нужно использовать: 
 
-filter[price][max]=100&filter[price][min]=10 (обратите внимание, параметры выстроены по-имени)
+filter[price][max][value]=100&filter[price][min][value]=10 (обратите внимание, параметры выстроены по-имени)
 
 На наименование значений накладываем теже правила что и на slug
 
@@ -84,7 +84,9 @@ filter[price][max]=100&filter[price][min]=10 (обратите внимание,
 
 Достаточно важная штука для проектирования, например, вам нужно булевое значение, его лучше назвать с префиксом is_. Например, [is_discoun] = 1|0. Это дает возможность, когда придет время уточнить параметры discount завести такой подраздел:
 
-filter[is_discount]=1&filter[discount][value]=10
+filter[is_discount][value]=1&filter[discount][value]=10
+
+discount так же можно расширить дальше: [discount][min][value]=10, так же как и [discount][min][currency][value]=RUB
 
 Как видно в примере выше мы использовали параметр value. Представьте, что нужно завести новый параметр, ограничивающий выборку по брернду, мы делаем [brand] = brandName, то мы больше не можем расширить этот кластер. Поэтому логичней "оставить место для маневра", сделав [brand][value] = brandName.
 
@@ -107,13 +109,13 @@ filter[is_discount]=1&filter[discount][value]=10
     <td colspan="3">filter - фильтрация</td>
   </tr>
   <tr>
-    <td>[price][min]</td><td>int</td><td>Минимальная цена</td>
+    <td>[price][min][value]</td><td>int</td><td>Минимальная цена</td>
   </tr>
   <tr>
-    <td>[price][max]</td><td>int</td><td>Максимальная цена</td>
+    <td>[price][max][value]</td><td>int</td><td>Максимальная цена</td>
   </tr>
   <tr>
-    <td>[price][currency]</td><td>USD|RUB|EUR...</td><td>Валюта</td>
+    <td>[price][currency][value]</td><td>USD|RUB|EUR...</td><td>Валюта</td>
   </tr>
 </table>
 
