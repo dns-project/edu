@@ -3,7 +3,9 @@
 
 ## Из чего состоит URL
 
-schema:user:[password]//host[.domain]/[folder/]
+
+<схема>://<логин>:<пароль>@<хост>:<порт>/<URL‐путь>?<параметры>#<якорь> (c) https://ru.wikipedia.org/wiki/URL
+
 
 
 ## Правило &laquo;А. Лебедева&raquo;
