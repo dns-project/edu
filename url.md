@@ -68,11 +68,11 @@ Location: /some/thing/?a=1&b=1
 
 Внешние параметры мы не обрабатываем, они нужны для каких-то иных целей.
 
-Мы используем параметры в следующей нотации: 
+__Мы используем параметры в следующей нотации:__
 
-filter[what][sub][sub][value] = value
-order[how][sub][sub][value] = value
-view[how][sub][sub][value] = value
+* filter[what][sub][sub][value] = value
+* order[how][sub][sub][value] = value
+* view[how][sub][sub][value] = value
 
 то есть для фильтрации данных на странице по минимальной и максимальной цене, нужно использовать: 
 
