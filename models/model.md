@@ -592,6 +592,7 @@ Model_Result может содержать дочерние Model_Result. Зач
 
 ##Удаление
 Удаление очень похоже на update - можно удалить передав опции, где указано какие записи удалять, можно воспользоваться спецаильным методом deleteProductByProduct. Отдельно генерятся методы для удаения связей многие-ко-многим.
+
         $productId = 245;
         $productOpts = ProductModel::getInstance()->getCond()->where(array('id' => $productId));
         ProductModel::getInstance()->deleteProduct($productOpts);
